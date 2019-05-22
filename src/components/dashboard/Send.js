@@ -55,7 +55,7 @@ const ContinueButton = ({ screenProps, to, disabled, checkError }) => (
       if (to && (isMobilePhone(to) || isEmail(to))) {
         const address = await userStorage.getUserAddress(to)
         if (address) {
-          return screenProps.push('Amount', { address, nextRoutes: ['Reason', 'SendQRSummary'] })
+          return screenProps.push('Amount', { to: address, nextRoutes: ['Reason', 'SendQRSummary'] })
         } else {
           return screenProps.push('Amount', { to, nextRoutes: ['Reason', 'SendLinkSummary'] })
         }
